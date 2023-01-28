@@ -21,29 +21,29 @@ pipeline{
                 }
             }
         }
-        stage("Post Docker Image"){
-            steps{
-                script{
-                    echo "========executing Posting Docker Image========"
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub'){
-                        dockerapp.push('latest')
-                        dockerapp.push("${env.BUILD_ID}")
-                        }
-                }
+//         stage("Post Docker Image"){
+//             steps{
+//                 script{
+//                     echo "========executing Posting Docker Image========"
+//                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub'){
+//                         dockerapp.push('latest')
+//                         dockerapp.push("${env.BUILD_ID}")
+//                         }
+//                 }
 
-            }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
-        }
+//             }
+//             post{
+//                 always{
+//                     echo "========always========"
+//                 }
+//                 success{
+//                     echo "========A executed successfully========"
+//                 }
+//                 failure{
+//                     echo "========A execution failed========"
+//                 }
+//             }
+//         }
 //          stage("Deploy Kubernetes"){
 //             environment{
 //                 tag_version = "${env.BUILD_ID}"
