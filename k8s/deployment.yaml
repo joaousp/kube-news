@@ -14,10 +14,10 @@ spec:
       containers:
       - name: postgre
         image: postgres:15.0
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+#         resources:
+#           limits:
+#             memory: "128Mi"
+#             cpu: "500m"
         ports:
         - containerPort: 5432
         env:
@@ -58,10 +58,10 @@ spec:
       containers:
       - name: web
         image: fabricioveronez/kube-news:v1
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+#         resources:
+#           limits:
+#             memory: "128Mi"
+#             cpu: "500m"
         ports:
         - containerPort: 8080
         env:
